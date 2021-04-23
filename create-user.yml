@@ -3,21 +3,20 @@
 - hosts: monit
   become: yes
   vars_files:
-          - ~/vars/defaults.yml
+          - ~/vars/defaults.yaml
   tasks:
           - name: create a new user name "dimas"
-            ansible.builtin.user:
+            user:
                     name: dimas
-                    password: "{{PASS}}"
-                    shell: "{{BASH}}"
+                    password: "{{ pass }}"
+                    shell: "{{ bash }}"
                     groups: sudo,docker
                     state: present
                     createhome: yes
-                    home: "{{HOME}}"
-                    generate_ssh_keys: yes
-                    ssh_key_bits: 4096
-                    ssh_key_file: "{{PRIVATE}}"
-                    ssh_public_key: "{{PUBLIC}}"
+                    #generate_ssh_keys: yes
+                    #ssh_key_bits: 4096
+                    #ssh_key_file: .ssh/id_rsa
+                    #ssh_public_key: .ssh/id_rsa.pub
 
 # allow ssh login
 
@@ -25,13 +24,13 @@
   become: yes
   tasks:
           - name: change password authentication
-            ansible.builtin.replace:
+            replace:
                     path: /etc/ssh/sshd_config
                     regexp: "PasswordAuthentication no"
                     replace: PasswordAuthentication yes
              
           - name: restart sshd service
-            ansible.builtin.service:
+            service:
                     name: sshd
                     state: restarted 
 
