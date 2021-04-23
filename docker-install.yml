@@ -1,4 +1,5 @@
-# Install docker
+# install docker
+
 - hosts: monit
   become: true
   tasks:
@@ -35,20 +36,22 @@
             apt: 
                     name: docker-ce
                     state: latest
+                    update_cache: yes
+
           - name: install docker cli
             apt:
                     name: docker-ce-cli
                     state: latest
+
           - name: containerd
             apt:
                     name: containerd.io
                     state: latest
 
-
           - name: install docker module for python
             pip:
                     name: docker
 
-
+# install docker-compose
 
 
