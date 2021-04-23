@@ -1,0 +1,4 @@
+---
+prometheus: prometheus
+prom_images: prom/prometheus
+

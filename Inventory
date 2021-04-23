@@ -1,0 +1,15 @@
+[monit]
+172.31.50.183 ansible_user=ubuntu ansible_connection=ssh
+
+[reverse_proxy]
+3.212.57.250 ansible_user=ubuntu ansible_connection=ssh
+
+[frontend]
+172.31.51.25 ansible_user=ubuntu ansible_connection=ssh
+
+[backend]
+172.31.36.8 ansible_user=ubuntu ansible_connection=ssh
+172.31.39.210 ansible_user=ubuntu ansible_connection=ssh
+
+[jenkins]
+172.31.48.70 ansible_user=ubuntu ansible_connection=ssh

@@ -1,0 +1,54 @@
+# Install docker
+- hosts: monit
+  become: true
+  tasks:
+          - name: install apttitude & update 
+            apt: 
+                name: aptitude 
+                state: latest 
+                update_cache: yes 
+                force_apt_get: yes
+
+          - name: install required system packages
+            apt:
+                    pkg:
+                            - apt-transport-https
+                            - ca-certificates
+                            - curl
+                            - gnupg
+                            - lsb-release
+                            - python3-pip
+                            - virtualenv
+                            - software-properties-common
+
+          - name: add docker GPG apt key
+            apt_key:
+                    url: https://download.docker.com/linux/ubuntu/gpg
+                    state: present
+
+          - name: Add docker repository
+            apt_repository:
+                    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+                    state: present
+
+          - name: update apt and install docker
+            apt: 
+                    name: docker-ce
+                    state: latest
+          - name: install docker cli
+            apt:
+                    name: docker-ce-cli
+                    state: latest
+          - name: containerd
+            apt:
+                    name: containerd.io
+                    state: latest
+
+
+          - name: install docker module for python
+            pip:
+                    name: docker
+
+
+
+
