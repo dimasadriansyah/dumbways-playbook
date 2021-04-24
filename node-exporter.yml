@@ -1,5 +1,8 @@
 - hosts: all
   become: true
   tasks:
+          - name: clean container
+            shell: docker stop node-exporter && docker rm node-exporter
+
           - name: install node_exporter
-            shell: docker run --name node-exporter -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter
+            shell: docker run --name node-exporter -d -p 9100:9100 --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter

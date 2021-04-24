@@ -5,7 +5,6 @@ services:
         ports:
             - 9090:9090
         container_name: prometheus
-        network_mode: host
         volumes:
             - /home/ubuntu/prometheus:/etc/prometheus
     grafana:
@@ -13,9 +12,4 @@ services:
         ports:
             - 3000:3000
         container_name: grafana
-        network_mode: host
-        depends_on:
-            - prometheus
-        volumes: 
-            - /home/ubuntu/grafana:/etc/grafana/
 
