@@ -8,9 +8,9 @@
           - name: create a new user name "dimas"
             user:
                     name: dimas
-                    password: "{{ pass }}"
-                    shell: "{{ bash }}"
-                    groups: sudo,docker
+                    password: "de5ce7308cfa92e9a31fec5fbb24a184de22baa89631f79f7d73ed48f07a1dcfd630f81950384cdad0c4ec09deb9b134b22180cc4ca392bb218699f17ad2aa1b"
+                    shell: /bin/bash
+                    groups: sudo
                     state: present
                     createhome: yes
                     #generate_ssh_keys: yes
@@ -24,10 +24,10 @@
   become: yes
   tasks:
           - name: change password authentication
-            replace:
+            lineinfile:
                     path: /etc/ssh/sshd_config
                     regexp: "PasswordAuthentication no"
-                    replace: PasswordAuthentication yes
+                    line: PasswordAuthentication yes
              
           - name: restart sshd service
             service:

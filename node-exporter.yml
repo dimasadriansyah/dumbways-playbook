@@ -1,0 +1,5 @@
+- hosts: all
+  become: true
+  tasks:
+          - name: install node_exporter
+            shell: docker run --name node-exporter -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter

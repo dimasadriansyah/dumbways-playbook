@@ -1,0 +1,35 @@
+- hosts: monit
+  become: true
+  tasks:
+          - name: edit /etc/hosts
+            lineinfile:
+                    path: /etc/hosts
+                    insertafter: "127.0.0.1 localhost"
+                    line: 172.31.51.25 frontend-1
+            lineinfile:
+                    path: /etc/hosts
+                    insertafter: "172.31.51.25 frontend-1"
+                    line: "172.31.36.8 backend-1"
+            lineinfile:
+                    path: /etc/hosts
+                    insertafter: "172.31.36.8 backend-1"
+                    line: "172.31.39.210 backend-2"
+            lineinfile:
+                    path: /etc/hosts
+                    insertafter: "172.31.39.210 backend-2"
+                    line: "172.31.62.12 db-1"
+            lineinfile:
+                    path: /etc/hosts
+                    insertafter: "172.31.62.12 db-1"
+                    line: "172.31.48.70 jenkins"
+            lineinfile:
+                    path: /etc/hosts
+                    insertafter: "172.31.48.70 jenkins"
+                    line: "172.31.57.12 ansible"
+            #lineinfile:
+                    #path: /etc/hosts
+                    #insertafter: "172.31.57.12 ansible"
+                    #line: ""
+
+
+

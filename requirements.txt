@@ -1,0 +1,8 @@
+ansible==3.3.0
+ansible-base==2.10.8
+docker==5.0.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+passlib==1.7.4
+PyYAML==5.4.1
+websocket-client==0.58.0

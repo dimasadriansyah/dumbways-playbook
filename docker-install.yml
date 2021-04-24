@@ -54,4 +54,47 @@
 
 # install docker-compose
 
+          - name: install docker-compose
+            get_url:
+                    url: "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-Linux-x86_64"
+                    dest: /usr/local/bin/docker-compose
+                    mode: 0755
+
+          - name: copy docker-compose systemd.service
+            copy:
+                    src: ./config/systemd/docker-compose.service
+                    dest: /etc/systemd/system/docker-compose.service
+
+# create docker-compose dir running
+
+          - name: Create direktori docker-compose file in /var
+            file:
+                    path: /var/docker-compose
+                    state: directory
+                    mode: 0755
+
+# copy file docker-compose.yml (prometheus & grafana)
+
+          - name: copy docker-compose.yml to running dir
+            copy:
+                    src: ./config/systemd/monitoring/docker-compose.yml
+                    dest: /var/docker-compose/docker-compose.yml
+
+          - name: prometheus file
+            copy:
+                    src: ./config/systemd/monitoring/prometheus.yml
+                    dest: /home/ubuntu/prometheus/prometheus.yml
+
+          - name: grafana file
+            copy:
+                    src: ./config/systemd/monitoring/grafana.ini
+                    dest: /home/ubuntu/grafana/grafana.ini
+
+# enable service docker-compose
+
+          - name: enable service docker-compose
+            service:
+                    name: docker-compose
+                    enabled: yes
+                    state: started
 

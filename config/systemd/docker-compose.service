@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker Compose
+Requires=network-online.target docker.service
+After=network-online.target docker.service
+[Service]
+WorkingDirectory=/var/docker-compose
+TasksMax=infinity
+ExecStart=/usr/local/bin/docker-compose up
+[Install]
+WantedBy=multi-user.target
+
