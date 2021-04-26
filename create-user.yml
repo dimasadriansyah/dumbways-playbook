@@ -8,7 +8,7 @@
           - name: create a new user name "dimas"
             user:
                     name: dimas
-                    password: "de5ce7308cfa92e9a31fec5fbb24a184de22baa89631f79f7d73ed48f07a1dcfd630f81950384cdad0c4ec09deb9b134b22180cc4ca392bb218699f17ad2aa1b"
+                    password: "$6$TwLAGHfdSsMfqLYQ$xtfAyXx6ElT70mRFLeiX.NEdGrPkHdCJgywDFH40tsJJUTUh2W4WOTyKMLNEx/prxnqqnfVAAatFu8RCqwDli."
                     shell: /bin/bash
                     groups: sudo
                     state: present
