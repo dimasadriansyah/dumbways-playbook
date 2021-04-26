@@ -1,6 +1,6 @@
 # install docker
 
-- hosts: monit
+- hosts: all
   become: true
   tasks:
           - name: install apttitude & update 
@@ -48,10 +48,6 @@
                     name: containerd.io
                     state: latest
 
-          - name: install docker module for python
-            pip:
-                    name: docker
-
 # install docker-compose
 
           - name: install docker-compose
@@ -81,20 +77,20 @@
                     dest: /var/docker-compose/docker-compose.yml
 
           - name: prometheus file
-            copy:
+                    copy:
                     src: ./config/systemd/monitoring/prometheus.yml
                     dest: /home/ubuntu/prometheus/prometheus.yml
 
           - name: grafana file
-            copy:
+                    copy:
                     src: ./config/systemd/monitoring/grafana.ini
                     dest: /home/ubuntu/grafana/grafana.ini
 
 # enable service docker-compose
 
-          - name: enable service docker-compose
-            service:
-                    name: docker-compose
-                    enabled: yes
-                    state: started
+           - name: enable service docker-compose
+             service:
+                     name: docker-compose
+                     enabled: yes
+                     state: started
 

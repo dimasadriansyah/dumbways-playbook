@@ -13,3 +13,6 @@
 
 [jenkins]
 172.31.48.70 ansible_user=ubuntu ansible_connection=ssh
+
+[database]
+172.31.62.12 ansible_user=ubuntu ansible_connection=ssh
