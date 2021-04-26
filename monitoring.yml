@@ -1,0 +1,17 @@
+- hosts: monit 
+become: true
+tasks:
+          - name: copy docker-compose.yml to running dir
+            copy:
+                    src: ./config/systemd/monitoring/docker-compose.yml
+                    dest: /var/docker-compose/docker-compose.yml
+
+          - name: prometheus file
+                    copy:
+                    src: ./config/systemd/monitoring/prometheus.yml
+                    dest: /home/ubuntu/prometheus/prometheus.yml
+
+          - name: grafana file
+                    copy:
+                    src: ./config/systemd/monitoring/grafana.ini
+                    dest: /home/ubuntu/grafana/grafana.ini

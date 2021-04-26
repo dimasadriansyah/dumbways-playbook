@@ -4,5 +4,35 @@
           - name: clean container
             shell: docker stop node-exporter && docker rm node-exporter
 
-          - name: install node_exporter
-            shell: docker run --name node-exporter -d -p 9100:9100 --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter
+          #- name: install node_exporter
+          #  shell: docker run --name node-exporter -d -p 9100:9100 --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter
+
+# install node exporter
+          - name: download node-exporter from url
+            get_url:
+                  url: "https://github.com/prometheus/node_exporter/releases/download/v1.1.2/node_exporter-1.1.2.linux-amd64.tar.gz"
+                  dest: /tmp/node-exporter.tar.gz
+
+          - name: extract file
+            unarchive:
+                  remote_src: yes
+                  src: /tmp/node_exporter.tar.gz 
+                  dest: /usr/local/share
+                  mode: 0755
+
+          - name: link directory node-exporter
+            file:
+                  path: /usr/local/bin/node_exporter
+                  state: link
+                  src: /usr/local/share/node_exporter-1.1.2.linux-amd64/node_exporter
+
+          - name: Copy node_exporter systemd service
+            copy:
+                  src: config/systemd/node-exporter.service
+                  dest: /etc/systemd/system/node-exporter.service
+
+          - name: Enable node_exporter service
+            systemd:
+                  name: node-exporter
+                  enabled: yes
+                  state: started

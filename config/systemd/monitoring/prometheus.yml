@@ -18,7 +18,7 @@ scrape_configs:
     static_configs: 
       - targets: ['172.31.36.8:9100','172.31.39.210:9100']
 
-  - job_name: 'mysql'
+  - job_name: 'database'
     scrape_interval: 5s
     static_configs: 
       - targets: ['172.31.62.12:9100']
