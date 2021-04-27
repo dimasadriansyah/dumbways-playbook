@@ -1,0 +1,33 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: create .ssh directory
+    file:
+      path: /home/dimas/.ssh
+      state: directory
+
+  - name: create file known_hosts
+    file:
+      path: /home/dimas/.ssh/known_hosts
+      state: touch
+
+  - name: change owner
+    command: chown -v dimas /home/dimas/.ssh/known_hosts
+
+  - name: copy private key to all host
+    copy:
+      src: ~/.ssh/dimas@dumbways
+      dest: /home/dimas/.ssh/dimas@dumbways
+
+  - name: send public key as authorized_keys and copy to all hosts
+    copy:
+      src: ~/.ssh/dimas@dumbways.pub
+      dest: /home/dimas/.ssh/authorized_keys
+
+  - name: copy config file to all hosts
+    copy:
+      src: ~/.ssh/config
+      dest: /home/dimas/.ssh/config
+
+  - name: change permission
+    command: chmod 666 /home/dimas/.ssh/dimas@dumbways

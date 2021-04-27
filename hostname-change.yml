@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+          - name: update hostname
+            hostname:
+                    name: "{{ new_hostname }}"
+
+          - name: reboot system
+            reboot:
+                    reboot_timeout: 3600

@@ -1,0 +1,19 @@
+- hosts: private-database-1 
+  become: true
+  tasks:
+          - name: create directory postgress
+            file:
+                    path: ~/postgresql
+                    state: directory
+                    mode: 0755
+
+          - name: copy docker-compose.yml to running dir
+            copy:
+                    src: ./config/systemd/database/docker-compose.yml
+                    dest: /var/docker-compose/docker-compose.yml
+
+          
+          - name: restart service docker-compose
+            service:
+                    name: docker-compose
+                    state: restarted

@@ -1,0 +1,11 @@
+version: '3.9'
+services: 
+    postgres:
+        container_name: postgres
+        image: postgres
+        environment:
+            - POSGRES_PASSWORD="1234"
+        ports: 
+            - "5432:5432"
+        volumes: 
+            - ~/postgresql:/var/lib/postgresql/data

@@ -1,0 +1,34 @@
+Host Frontend-1 172.31.85.26
+	Hostname 172.31.85.26
+	IdentityFile ~/.ssh/dimas@dumbways
+	User dimas
+
+Host Frontend-2 172.31.95.166
+	Hostname 172.31.95.166
+	IdentityFile ~/.ssh/dimas@dumbways
+	User dimas
+
+Host Backend-1 172.31.94.190
+        Hostname 172.31.94.190
+        IdentityFile ~/.ssh/dimas@dumbways
+        User dimas
+
+Host Database-1 172.31.90.215
+        Hostname 172.31.90.215
+        IdentityFile ~/.ssh/dimas@dumbways
+        User dimas
+
+Host Jenkins 172.31.89.217
+        Hostname 172.31.89.217
+        IdentityFile ~/.ssh/dimas@dumbways
+        User dimas
+
+Host Monitoring 172.31.84.148
+        Hostname 172.31.84.148
+        IdentityFile ~/.ssh/dimas@dumbways
+        User dimas
+
+Host Github github.com
+        Hostname github.com
+        IdentityFile ~/.ssh/dimas@dumbways
+        User dimas
