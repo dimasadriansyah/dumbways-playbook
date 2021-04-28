@@ -1,0 +1,33 @@
+- hosts: private-backend-1
+  become: true
+  vars_files:
+      - ~/vars/defaults.yml
+  tasks:
+    - name: clone repo backend
+      git:
+        repo: "{{ repo_backend }}"
+        dest: ~/waysgallery-backend
+    
+    - name: login into dockerhub
+      docker_login:
+        username: "{{ docker_username }}"
+        password: "{{ docker_password }}"
+        email: "{{ docker_email }}"
+
+    - name: Build an image and push it to a private repo
+      docker_image:
+        path: ~/waysgallery-backend
+        name: docker.io/dimasadriansah4/waysgallery-backend
+        tag: v1.0.0
+        push: yes
+
+    - name: copy docker-compose.yml to running dir
+      copy:
+        src: ./config/systemd/backend/docker-compose.yml
+        dest: /var/docker-compose/docker-compose.yml
+
+    - name: restart service docker-compose
+      service:
+        name: docker-compose
+        state: restarted
+
