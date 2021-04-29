@@ -1,0 +1,13 @@
+upstream waysgallery-frontend{
+    server 172.31.85.26:3000;
+    server 172.31.95.166:3000;
+}
+
+server {
+    server_name dimas.onlinecamp.id;
+
+    location / {
+        proxy_pass http://waysgallery-frontend;
+    }
+
+}

@@ -1,0 +1,15 @@
+server {
+    server_name monitoring.dimas.onlinecamp.id;
+
+    location / {
+        proxy_pass http://172.31.84.148:3000;
+    }
+}
+
+server {
+    server_name prometheus.dimas.onlinecamp.id;
+
+    location / {
+        proxy_pass http://172.31.84.148:9090;
+    }
+}

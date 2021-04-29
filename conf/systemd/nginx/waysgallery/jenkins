@@ -1,0 +1,7 @@
+server {
+    server_name cicd.dimas.onlinecamp.id;
+
+    location / {
+        proxy_pass http://172.31.89.217:8080;
+    }
+}

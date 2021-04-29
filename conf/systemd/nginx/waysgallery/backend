@@ -1,0 +1,8 @@
+server {
+    server_name api.dimas.onlinecamp.id;
+
+    location / {
+        proxy_pass http://172.31.94.190:5000;
+    }
+}
+
