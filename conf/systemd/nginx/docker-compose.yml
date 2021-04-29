@@ -10,5 +10,3 @@ services:
             - /var/docker-compose/nginx.conf:/etc/nginx/nginx.conf
             - /var/docker-compese/waysgallery:/etc/nginx/waysgallery
             - /etc/letsencrypt:/etc/letsencrypt
-    certbot:
-        image: certbot/certbot

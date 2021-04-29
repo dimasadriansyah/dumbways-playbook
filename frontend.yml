@@ -1,0 +1,38 @@
+- hosts: frontend
+  become: true
+  vars_files:
+      - ~/vars/defaults.yml
+  tasks:
+    - name: clone repo frontend
+      git:
+        repo: "{{ repo_frontend }}"
+        dest: ~/waysgallery-frontend
+
+    - name: edit file setAuthToken.jsx
+      lineinfile:
+        path: ~/waysgallery-frontend/src/redux/utility/setAuthToken.jsx
+        regexp: "http://localhost:5000"
+        line: "api.dimas.onlinecamp.id"
+
+    - name: login into dockerhub
+      docker_login:
+        username: "{{ docker_username }}"
+        password: "{{ docker_password }}"
+        email: "{{ docker_email }}"
+
+    - name: Build an image and push it to a private repo
+      docker_image:
+        path: ~/waysgallery-frontend
+        name: docker.io/dimasadriansah4/waysgallery-frontend
+        tag: v1.0.0
+        push: yes
+
+    - name: copy docker-compose.yml to running dir
+      copy:
+        src: ./config/systemd/frontend/docker-compose.yml
+        dest: /var/docker-compose/docker-compose.yml
+
+    - name: restart service docker-compose
+      service:
+        name: docker-compose
+        state: restarted

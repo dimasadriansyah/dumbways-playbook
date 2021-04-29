@@ -1,9 +1,7 @@
 version: '3.9'
 services: 
     backend:
-        container_name: backend-1
-        image: docker.io/dimasadriansah4/waysgallery-backend:v1.5.0
+        container_name: frontend
+        image: docker.io/dimasadriansah4/waysgallery-frontend:v1.0.0
         ports: 
-            - 5000:5000
-        environment:
-            - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
+            - 3000:3000
