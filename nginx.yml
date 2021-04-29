@@ -1,0 +1,47 @@
+- hosts: nginx
+  become: yes
+  tasks:
+
+# install nginx-light & certbot
+
+      - name: add repo certbot 
+        apt_repository:
+          repo: 'ppa:certbot/certbot'
+
+      - name: install nginx
+        apt:
+          name: nginx-light
+          state: latest
+          update_cache: yes
+
+      - name: install certbot
+        apt:
+          name: python-certbot-nginx
+          state: latest
+
+# copy all configuration reverse proxy to waysgallery directory
+      - name: create directory waysgallery
+        file:
+          path: /etc/nginx/waysgallery
+          state: directory
+          mode: 0755
+
+      - name: copy frontend
+        copy:
+          src: ./config/systemd/nginx/waysgallery/frontend
+          dest: /etc/nginx/waysgallery/frontend
+
+      - name: copy backend
+        copy:
+          src: ./config/systemd/nginx/waysgallery/backend
+          dest: /etc/nginx/waysgallery/backend
+
+      - name: copy jenkins
+        copy:
+          src: ./config/systemd/nginx/waysgallery/jenkins
+          dest: /etc/nginx/waysgallery/jenkins
+
+      - name: copy monitoring
+        copy:
+          src: ./config/systemd/nginx/waysgallery/monitoring
+          dest: /etc/nginx/waysgallery/monitoring
