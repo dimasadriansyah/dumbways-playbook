@@ -1,19 +1,31 @@
-[monit]
-172.31.50.183 ansible_user=ubuntu ansible_connection=ssh
-
-[reverse_proxy]
-3.212.57.250 ansible_user=ubuntu ansible_connection=ssh
+[nginx]
+public-nginx ansible_host=18.208.85.150 ansible_connection=ssh
 
 [frontend]
-172.31.51.25 ansible_user=ubuntu ansible_connection=ssh
+private-frontend-1 ansible_host=172.31.85.26 ansible_connection=ssh
+private-frontend-2 ansible_host=172.31.95.166 ansible_connection=ssh
 
 [backend]
-172.31.36.8 ansible_user=ubuntu ansible_connection=ssh
-172.31.39.210 ansible_user=ubuntu ansible_connection=ssh
-
-[jenkins]
-172.31.48.70 ansible_user=ubuntu ansible_connection=ssh
+private-backend-1 ansible_host=172.31.94.190 ansible_connection=ssh
 
 [database]
-172.31.62.12 ansible_user=ubuntu ansible_connection=ssh
+private-database-1 ansible_host=172.31.90.215 ansible_connection=ssh
+
+[jenkins]
+private-jenkins ansible_host=172.31.89.217 ansible_connection=ssh
+
+[monit]
+private-monitoring ansible_host=172.31.84.148 ansible_connection=ssh
+#private-ansible ansible_host=172.31.90.133 ansible_connection=ssh
+
+[hostname]
+public-nginx new_hostname=nginx
+private-frontend-1 new_hostname=frontend-1
+private-frontend-2 new_hostname=frontend-2
+private-backend-1 new_hostname=backend-1
+private-database-1 new_hostname=database-1
+private-jenkins new_hostname=jenkins
+private-monitoring new_hostname=monitoring
+#private-ansible new_hostname=ansible
+
 

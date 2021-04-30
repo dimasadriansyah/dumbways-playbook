@@ -4,8 +4,8 @@ services:
         container_name: postgres
         image: postgres
         environment:
-            - POSGREST_PASSWORD="postgres"
-            - DATABASE_URL="postgres://dimas:dimas@172.31.90.215:5432/waysgallery"
+            - POSGREST_PASSWORD=postgres
+            - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
         ports: 
             - "5432:5432"
         volumes: 

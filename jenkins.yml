@@ -1,0 +1,19 @@
+- hosts: jenkins
+  become: yes
+  tasks:
+
+      - name: create direktory for jenkins_home
+        file:
+          path: ~/jenkins_home
+          state: directory
+          mode: 0777
+
+      - name: copy docker-compose to running directory
+        copy:
+          src: ./config/systemd/jenkins/docker-compose.yml
+          dest: /var/docker-compose/docker-compose.yml
+
+      - name: restart services docker-compose
+        service:
+          name: docker-compose
+          state: restarted

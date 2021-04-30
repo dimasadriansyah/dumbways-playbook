@@ -18,7 +18,7 @@
       docker_image:
         path: ~/waysgallery-backend
         name: docker.io/dimasadriansah4/waysgallery-backend
-        tag: v1.0.0
+        tag: v1.6.0
         push: yes
 
     - name: copy docker-compose.yml to running dir
