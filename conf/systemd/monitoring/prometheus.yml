@@ -11,25 +11,30 @@ scrape_configs:
   - job_name: 'frontend'
     scrape_interval: 5s
     static_configs:
-      - targets: ['172.31.51.25:9100']
+      - targets: ['172.31.85.26:9100','172.31.95.166:9100']
 
   - job_name: 'backend'
     scrape_interval: 5s
     static_configs: 
-      - targets: ['172.31.36.8:9100','172.31.39.210:9100']
+      - targets: ['172.31.94.190:9100']
 
   - job_name: 'database'
     scrape_interval: 5s
     static_configs: 
-      - targets: ['172.31.62.12:9100']
+      - targets: ['172.31.90.215:9100']
 
   - job_name: 'jenkins'
     scrape_interval: 5s
     static_configs: 
-      - targets: ['172.31.48.70:9100']
+      - targets: ['172.31.89.217:9100']
 
   - job_name: 'ansible'
     scrape_interval: 5s
     static_configs: 
-      - targets: ['172.31.57.12:9100']
+      - targets: ['172.31.90.133:9100']
+
+  - job_name: 'nginx'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['172.31.41.152:9100']
 

@@ -18,6 +18,13 @@ private-jenkins ansible_host=172.31.89.217 ansible_connection=ssh
 private-monitoring ansible_host=172.31.84.148 ansible_connection=ssh
 #private-ansible ansible_host=172.31.90.133 ansible_connection=ssh
 
+[agent]
+private-jenkins ansible_host=172.31.89.217 ansible_connection=ssh
+private-database-1 ansible_host=172.31.90.215 ansible_connection=ssh
+private-backend-1 ansible_host=172.31.94.190 ansible_connection=ssh
+private-frontend-1 ansible_host=172.31.85.26 ansible_connection=ssh
+private-frontend-2 ansible_host=172.31.95.166 ansible_connection=ssh
+
 [hostname]
 public-nginx new_hostname=nginx
 private-frontend-1 new_hostname=frontend-1

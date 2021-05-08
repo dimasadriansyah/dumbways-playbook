@@ -8,12 +8,6 @@
         repo: "{{ repo_frontend }}"
         dest: ~/waysgallery-frontend
 
-    - name: edit file setAuthToken.jsx
-      lineinfile:
-        path: ~/waysgallery-frontend/src/redux/utility/setAuthToken.jsx
-        regexp: "http://localhost:5000"
-        line: "https://api.dimas.onlinecamp.id"
-
     - name: login into dockerhub
       docker_login:
         username: "{{ docker_username }}"
