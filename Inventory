@@ -10,6 +10,7 @@ private-backend-1 ansible_host=172.31.94.190 ansible_connection=ssh
 
 [database]
 private-database-1 ansible_host=172.31.90.215 ansible_connection=ssh
+private-database-2 ansible_host=172.31.82.123 ansible_connection=ssh
 
 [jenkins]
 private-jenkins ansible_host=172.31.89.217 ansible_connection=ssh

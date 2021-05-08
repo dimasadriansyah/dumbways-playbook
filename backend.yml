@@ -3,6 +3,14 @@
   vars_files:
       - ~/vars/defaults.yml
   tasks:
+    - name: delete directory repo
+      file:
+        path: ~/waysgallery-backend
+        state: absent
+
+    - name: delete container
+      shell: docker stop backend-1 && docker rm backend-1
+
     - name: clone repo backend
       git:
         repo: "{{ repo_backend }}"
@@ -30,4 +38,3 @@
       service:
         name: docker-compose
         state: restarted
-

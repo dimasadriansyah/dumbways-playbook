@@ -20,9 +20,6 @@
 
 # allow ssh login
 
-- hosts: monit
-  become: yes
-  tasks:
           - name: change password authentication
             lineinfile:
                     path: /etc/ssh/sshd_config
@@ -33,4 +30,3 @@
             service:
                     name: sshd
                     state: restarted 
-

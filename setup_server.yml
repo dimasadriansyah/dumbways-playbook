@@ -1,5 +1,5 @@
 # install docker
-- hosts: all
+- hosts: frontend
   become: true
   tasks:
         - name: install apttitude & update 
@@ -47,6 +47,16 @@
                name: containerd.io
                state: latest
 
+        - name: install pip
+          apt:
+               name: python-pip
+               update-cache: yes
+               state: latest
+
+        - name: docker python
+          pip:
+               name: docker
+               state: latest
 # install docker-compose
         - name: install docker-compose
           get_url:

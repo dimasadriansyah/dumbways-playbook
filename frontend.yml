@@ -7,6 +7,14 @@
       git:
         repo: "{{ repo_frontend }}"
         dest: ~/waysgallery-frontend
+    
+    - name: delete directory repo
+      file:
+        path: ~/waysgallery-frontend
+        state: absent
+ 
+    - name: delete container
+      shell: docker stop frontend && docker rm frontend
 
     - name: login into dockerhub
       docker_login:
@@ -18,7 +26,7 @@
       docker_image:
         path: ~/waysgallery-frontend
         name: docker.io/dimasadriansah4/waysgallery-frontend
-        tag: v1.0.0
+        tag: v1.3.0
         push: yes
 
     - name: copy docker-compose.yml to running dir

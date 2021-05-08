@@ -3,6 +3,7 @@ services:
     backend:
         container_name: backend-1
         image: docker.io/dimasadriansah4/waysgallery-backend:v1.6.0
+        stdin_open: true
         ports: 
             - 5000:5000
         environment:
