@@ -9,7 +9,7 @@
 
           - name: copy docker-compose.yml to running dir
             copy:
-                    src: ./config/systemd/database/docker-compose.yml
+                    src: ./config/systemd/database-master/docker-compose.yml
                     dest: /var/docker-compose/docker-compose.yml
 
           
