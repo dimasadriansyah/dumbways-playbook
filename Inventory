@@ -3,7 +3,6 @@ public-nginx ansible_host=18.208.85.150 ansible_connection=ssh
 
 [frontend]
 private-frontend-1 ansible_host=172.31.85.26 ansible_connection=ssh
-# private-frontend-2 ansible_host=172.31.95.166 ansible_connection=ssh
 
 [backend]
 private-backend-1 ansible_host=172.31.94.190 ansible_connection=ssh
