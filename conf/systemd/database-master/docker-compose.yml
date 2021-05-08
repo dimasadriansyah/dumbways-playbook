@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+    postgres:
+        container_name: postgres-master
+        image: postgres
+        environment:
+            - POSTGRESQL_REPLICATION_MODE=master
+            - POSTGRESQL_REPLICATION_USERNAME=master_repl
+            - POSTGRESQL_REPLICATION_PASSWORD=master_repl123
+            - POSTGRESQL_USERNAME=dimas
+            - POSTGRESQL_PASSWORD=dimas
+            - NODE_ENV=production
+            - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
+        ports:
+            - 5432:5432
+        volumes:
+            - ~/postgresql:/var/lib/postgresql/data
