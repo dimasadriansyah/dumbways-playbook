@@ -23,12 +23,10 @@ private-jenkins ansible_host=172.31.89.217 ansible_connection=ssh
 private-database-1 ansible_host=172.31.90.215 ansible_connection=ssh
 private-backend-1 ansible_host=172.31.94.190 ansible_connection=ssh
 private-frontend-1 ansible_host=172.31.85.26 ansible_connection=ssh
-private-frontend-2 ansible_host=172.31.95.166 ansible_connection=ssh
 
 [hostname]
 public-nginx new_hostname=nginx
 private-frontend-1 new_hostname=frontend-1
-private-frontend-2 new_hostname=frontend-2
 private-backend-1 new_hostname=backend-1
 private-database-1 new_hostname=database-1
 private-jenkins new_hostname=jenkins
