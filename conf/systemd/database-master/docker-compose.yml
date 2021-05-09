@@ -4,15 +4,17 @@ services:
         container_name: postgres-master
         image: postgres
         environment:
-            - POSTGRESQL_REPLICATION_MODE=master
-            - POSTGRESQL_REPLICATION_USERNAME=master_repl
-            - POSTGRESQL_REPLICATION_PASSWORD=master_repl123
-            - POSTGRESQL_USERNAME=dimas
-            - POSTGRESQL_PASSWORD=dimas
-            - POSTGRESQL_DATABASE=waysgallery
+            - POSTGRES_REPLICATION_MODE=master
+            - POSTGRES_REPLICATION_USERNAME=replicator
+            - POSTGRES_REPLICATION_PASSWORD=replicator123
+            - POSTGRES_USERNAME=dimas
+            - POSTGRES_PASSWORD=dimas
+            - POSTGRES_DB=waysgallery
             - NODE_ENV=production
             - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
         ports:
             - 5432:5432
         volumes:
             - ~/postgresql:/var/lib/postgresql/data
+            - ./my-postgres.conf:/etc/postgresql/postgresql.conf
+            - ./pg_hba.conf:/etc/postgresql/pg_hba.conf

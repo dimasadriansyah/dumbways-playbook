@@ -9,10 +9,10 @@ services:
             - POSTGRESQL_REPLICATION_PASSWORD=master_repl123
             - POSTGRESQL_MASTER_HOST=172.31.90.215
             - POSTGRESQL_MASTER_PORT_NUMBER=5432
-            - POSTGRESQL_USERNAME=dimas
-            - POSTGRESQL_PASSWORD=dimas
+            - POSTGRES_USER=dimas
+            - POSTGRES_PASSWORD=dimas
             - NODE_ENV=production
-            - POSTGRESQL_DATABASE=waysgallery
+            - POSTGRESQL_DB=waysgallery
             - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
         ports:
             - 5432:5432
