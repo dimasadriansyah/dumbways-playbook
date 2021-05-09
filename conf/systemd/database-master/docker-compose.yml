@@ -9,6 +9,7 @@ services:
             - POSTGRESQL_REPLICATION_PASSWORD=master_repl123
             - POSTGRESQL_USERNAME=dimas
             - POSTGRESQL_PASSWORD=dimas
+            - POSTGRESQL_DATABASE=waysgallery
             - NODE_ENV=production
             - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
         ports:
