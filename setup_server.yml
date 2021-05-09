@@ -66,7 +66,7 @@
 
         - name: copy docker-compose systemd.service
           copy:
-                src: ./config/systemd/docker-compose.service
+                src: ./conf/systemd/docker-compose.service
                 dest: /etc/systemd/system/docker-compose.service
 
 # create docker-compose dir running

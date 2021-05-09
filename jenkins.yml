@@ -10,7 +10,7 @@
 
       - name: copy docker-compose to running directory
         copy:
-          src: ./config/systemd/jenkins/docker-compose.yml
+          src: ./conf/systemd/jenkins/docker-compose.yml
           dest: /var/docker-compose/docker-compose.yml
 
       - name: restart services docker-compose

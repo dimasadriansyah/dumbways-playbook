@@ -14,7 +14,7 @@
 
           - name: prometheus file
             copy:
-                    src: ./config/systemd/monitoring/prometheus.yml
+                    src: ./conf/systemd/monitoring/prometheus.yml
                     dest: ~/prometheus/prometheus.yml
 
           - name: restart service docker-compose

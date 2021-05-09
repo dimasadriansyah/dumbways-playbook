@@ -28,7 +28,7 @@
 
           - name: Copy node_exporter systemd service
             copy:
-                  src: config/systemd/node-exporter.service
+                  src: conf/systemd/node-exporter.service
                   dest: /etc/systemd/system/node-exporter.service
 
           - name: Enable node_exporter service

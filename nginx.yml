@@ -28,20 +28,20 @@
 
       - name: copy frontend
         copy:
-          src: ./config/systemd/nginx/waysgallery/frontend
+          src: ./conf/systemd/nginx/waysgallery/frontend
           dest: /etc/nginx/waysgallery/frontend
 
       - name: copy backend
         copy:
-          src: ./config/systemd/nginx/waysgallery/backend
+          src: ./conf/systemd/nginx/waysgallery/backend
           dest: /etc/nginx/waysgallery/backend
 
       - name: copy jenkins
         copy:
-          src: ./config/systemd/nginx/waysgallery/jenkins
+          src: ./conf/systemd/nginx/waysgallery/jenkins
           dest: /etc/nginx/waysgallery/jenkins
 
       - name: copy monitoring
         copy:
-          src: ./config/systemd/nginx/waysgallery/monitoring
+          src: ./conf/systemd/nginx/waysgallery/monitoring
           dest: /etc/nginx/waysgallery/monitoring

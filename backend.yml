@@ -31,7 +31,7 @@
 
     - name: copy docker-compose.yml to running dir
       copy:
-        src: ./config/systemd/backend/docker-compose.yml
+        src: ./conf/systemd/backend/docker-compose.yml
         dest: /var/docker-compose/docker-compose.yml
 
     - name: restart service docker-compose
