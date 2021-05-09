@@ -12,6 +12,8 @@ services:
             - POSTGRESQL_USERNAME=dimas
             - POSTGRESQL_PASSWORD=dimas
             - NODE_ENV=production
+            - POSTGRESQL_DATABASE=waysgallery
+            - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
         ports:
             - 5432:5432
         volumes:
