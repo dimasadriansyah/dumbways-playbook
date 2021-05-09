@@ -11,8 +11,17 @@
             copy:
                     src: ./conf/systemd/database-master/docker-compose.yml
                     dest: /var/docker-compose/docker-compose.yml
+            
+          - name: copy my-postgres.conf
+            copy:
+                    src: ./conf/systemd/database-master/my-postgres.conf
+                    dest: /var/docker-compose/my-postgres.conf
 
-          
+          - name: copy pg_hba.conf
+            copy:
+                    src: ./conf/systemd/database-master/pg_hba.conf
+                    dest: /var/docker-compose/pg_hba.conf
+
           - name: restart service docker-compose
             service:
                     name: docker-compose
