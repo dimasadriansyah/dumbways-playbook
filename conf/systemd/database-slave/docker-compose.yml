@@ -4,13 +4,8 @@ services:
         container_name: postgres-slave
         image: postgres
         environment:
-            - POSTGRES_REPLICATION_MODE=slave
-            - POSTGRES_REPLICATION_USERNAME=replicator
-            - POSTGRES_REPLICATION_PASSWORD=replicator123
-            - POSTGRES_MASTER_HOST=172.31.90.215
-            - POSTGRES_MASTER_PORT_NUMBER=5432
-            - POSTGRES_USERNAME=dimas
-            - POSTGRES_PASSWORD=dimas
+            - POSTGRES_USERNAME=postgres
+            - POSTGRES_PASSWORD=postgres
             - NODE_ENV=production
             - POSTGRES_DB=waysgallery
             - DATABASE_URL=postgres://dimas:dimas@172.31.90.215:5432/waysgallery
@@ -18,5 +13,3 @@ services:
             - 5432:5432
         volumes:
             - ~/data-slave:/var/lib/postgresql/data
-            - ./my-postgres.conf:/etc/postgresql/postgres.conf
-            - ./pg_hba.conf:/etc/postgresql/pg_hba.conf

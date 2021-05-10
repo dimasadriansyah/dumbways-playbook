@@ -1,0 +1,23 @@
+- on master :
+1) User and auth setup
+
+=# CREATE ROLE replicator REPLICATION LOGIN PASSWORD 'password';
+=# \q
+
+$ sudo vim /opt/PostgresSQL/10/data/pg_hba.conf 
+---
+# IPv4 local connection:
+host    all    all             127.0.0.1/32        md5
+host    all    replicator      host_node_target    md5
+---
+
+
+
+2) wal_level configuration
+3) CREATE PUBLICATION
+4) Grant rights to User
+
+- on target :
+5) create target table
+6) CREATE SUBSCRIPTION
+7) Test
