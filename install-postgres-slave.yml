@@ -3,7 +3,7 @@
   tasks:
           - name: create directory postgress
             file:
-                    path: ~/data-slave
+                    path: ~/data
                     state: directory
                     mode: 0755
 
